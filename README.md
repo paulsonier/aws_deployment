@@ -46,6 +46,35 @@ export EC2_KEY_PAIR_NAME="my-ec2-key-pair" # Replace with your key pair name
 ./deploy_ec2.sh
 ```
 
+### `deploy_rds.sh`
+
+This script deploys an AWS RDS database instance.
+
+**Required Environment Variables:**
+- `AWS_ACCESS_KEY_ID`: Your AWS access key ID.
+- `AWS_SECRET_ACCESS_KEY`: Your AWS secret access key.
+- `AWS_DEFAULT_REGION`: The AWS region to deploy resources (e.g., `us-east-1`).
+- `RDS_DB_NAME`: The name for the database (e.g., `mydb`).
+- `RDS_MASTER_USERNAME`: The master username for the database.
+- `RDS_MASTER_PASSWORD`: The master password for the database.
+- `RDS_DB_INSTANCE_CLASS`: The DB instance class (e.g., `db.t2.micro`).
+- `RDS_ALLOCATED_STORAGE`: The allocated storage in GiB (e.g., `20`).
+- `RDS_ENGINE`: The database engine (e.g., `mysql`, `postgres`).
+
+**Usage:**
+```bash
+export AWS_ACCESS_KEY_ID="YOUR_ACCESS_KEY_ID"
+export AWS_SECRET_ACCESS_KEY="YOUR_SECRET_ACCESS_KEY"
+export AWS_DEFAULT_REGION="us-east-1"
+export RDS_DB_NAME="my-rds-db"
+export RDS_MASTER_USERNAME="admin"
+export RDS_MASTER_PASSWORD="your_master_password"
+export RDS_DB_INSTANCE_CLASS="db.t2.micro"
+export RDS_ALLOCATED_STORAGE="20"
+export RDS_ENGINE="mysql" # or postgres, etc.
+./deploy_rds.sh
+```
+
 ## Before Running
 
 Ensure you have the AWS CLI installed and configured. Although these scripts rely on environment variables, having the AWS CLI configured with default credentials can help with initial setup and troubleshooting.
