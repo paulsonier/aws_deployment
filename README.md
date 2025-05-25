@@ -75,6 +75,35 @@ export RDS_ENGINE="mysql" # or postgres, etc.
 ./deploy_rds.sh
 ```
 
+### `deploy_lambda.sh`
+
+This script deploys an AWS Lambda function. It can create a new function or update an existing one.
+
+**Required Environment Variables:**
+- `AWS_ACCESS_KEY_ID`: Your AWS access key ID.
+- `AWS_SECRET_ACCESS_KEY`: Your AWS secret access key.
+- `AWS_DEFAULT_REGION`: The AWS region to deploy the Lambda function (e.g., `us-east-1`).
+- `LAMBDA_FUNCTION_NAME`: The name for your Lambda function.
+- `LAMBDA_RUNTIME`: The runtime for the Lambda function (e.g., `nodejs18.x`, `python3.9`).
+- `LAMBDA_HANDLER`: The handler for the Lambda function (e.g., `index.handler`).
+- `LAMBDA_S3_BUCKET`: The S3 bucket where your Lambda deployment package (zip file) is stored.
+- `LAMBDA_S3_KEY`: The S3 key (path to the zip file) of your Lambda deployment package.
+- `LAMBDA_ROLE_ARN`: The ARN of the IAM role that Lambda will assume to execute your function.
+
+**Usage:**
+```bash
+export AWS_ACCESS_KEY_ID="YOUR_ACCESS_KEY_ID"
+export AWS_SECRET_ACCESS_KEY="YOUR_SECRET_ACCESS_KEY"
+export AWS_DEFAULT_REGION="us-east-1"
+export LAMBDA_FUNCTION_NAME="my-lambda-function"
+export LAMBDA_RUNTIME="python3.9"
+export LAMBDA_HANDLER="main.handler"
+export LAMBDA_S3_BUCKET="my-lambda-code-bucket"
+export LAMBDA_S3_KEY="my-lambda-function.zip"
+export LAMBDA_ROLE_ARN="arn:aws:iam::123456789012:role/lambda-exection-role" # Replace with your Lambda execution role ARN
+./deploy_lambda.sh
+```
+
 ## Before Running
 
 Ensure you have the AWS CLI installed and configured. Although these scripts rely on environment variables, having the AWS CLI configured with default credentials can help with initial setup and troubleshooting.
