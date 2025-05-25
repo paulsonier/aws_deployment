@@ -1,6 +1,6 @@
 # AWS Deployment Scripts
 
-This repository contains bash scripts to deploy AWS resources from the command line. These scripts depend on environment variables set in the shell where they are executed.
+This repository contains bash scripts to deploy AWS resources from the command line. These scripts are designed to be run in an environment where necessary AWS credentials and configuration are provided via environment variables.
 
 ## Scripts
 
